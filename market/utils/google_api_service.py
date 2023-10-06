@@ -17,8 +17,8 @@ from googleapiclient.errors import HttpError
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # The ID and range of a sample spreadsheet
-SAMPLE_SPREADSHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
-SAMPLE_RANGE_NAME = 'Class Data!A2:E'
+SAMPLE_SPREADSHEET_ID = '1BTHmikgF9gkPdyUU8MQgFrxyoWQDmBkpDloNfor_-a4'
+SAMPLE_RANGE_NAME = 'Fruit Data!A2:C'
 CREDENTIALS_PATH = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), 'credentials.json')
 
@@ -58,10 +58,10 @@ def main():
             print('No data found.')
             return
 
-        print('Name, Major:')
+        print('Name, Price, Quantity:')
         for row in values:
             # Print columns A and E, which correspond to indices 0 and 4.
-            print('%s, %s' % (row[0], row[4]))
+            print('%s, %.2f, %i' % (row[0], float(row[1]), int(row[2])))
     except HttpError as err:
         print(err)
 
