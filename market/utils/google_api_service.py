@@ -23,10 +23,15 @@ CREDENTIALS_PATH = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), 'credentials.json')
 
 '''
-Refactor code:
+Todo:
 
+1)Refactor code:
 turn main into a class?
 class would contain functions: check_auth and fetch_data so that fetch_data can just call on check_auth. and we can just call on fetch_data in my views. so that the view takes care of storing the data and the crud functionality for its model?
+
+2)create view to save data to db
+
+3)create remaining models
 '''
 
 
