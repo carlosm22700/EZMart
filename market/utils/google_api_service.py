@@ -22,6 +22,13 @@ SAMPLE_RANGE_NAME = 'Fruit Data!A2:C'
 CREDENTIALS_PATH = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), 'credentials.json')
 
+'''
+Refactor code:
+
+turn main into a class?
+class would contain functions: check_auth and fetch_data so that fetch_data can just call on check_auth. and we can just call on fetch_data in my views. so that the view takes care of storing the data and the crud functionality for its model?
+'''
+
 
 def main():
     """
@@ -62,6 +69,10 @@ def main():
         for row in values:
             # Print columns A and E, which correspond to indices 0 and 4.
             print('%s, %.2f, %i' % (row[0], float(row[1]), int(row[2])))
+
+            sheet_data = '%s, %.2f, %i' % (row[0], float(row[1]), int(row[2]))
+
+            return sheet_data
     except HttpError as err:
         print(err)
 
